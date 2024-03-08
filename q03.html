@@ -1,0 +1,30 @@
+<!-- q03.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>q03スタンプ</title>
+<script>
+// LocalStorageからスタンプの収集状況を読み込む関数
+function loadStamps() {
+  const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
+  return stamps;
+}
+
+// スタンプを収集する関数
+function collectStamp(stampId) {
+  const stamps = loadStamps();
+  stamps[stampId] = true;
+  localStorage.setItem('stamps', JSON.stringify(stamps));
+  alert(stampId + 'を収集しました！');
+  // ここで収集したスタンプを表示する処理を追加することもできます
+}
+</script>
+</head>
+<body>
+
+<h1>q03スタンプ</h1>
+<button onclick="collectStamp('q03')">q03スタンプを収集</button>
+
+</body>
+</html>
