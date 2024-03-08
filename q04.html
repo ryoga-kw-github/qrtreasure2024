@@ -11,6 +11,22 @@
         <script charset="shift-jis" type="text/javascript" src="scr/command.js"></script>
         <script charset="shift-jis" type="text/javascript" src="scr/system.js"></script>
         <script charset="shift-jis" type="text/javascript" src="scr/web_maker_main.js"></script>
+        <script>
+          // LocalStorageからスタンプの収集状況を読み込む関数
+          function loadStamps() {
+            const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
+            return stamps;
+          }
+          
+          // スタンプを収集する関数
+          function collectStamp(stampId) {
+            const stamps = loadStamps();
+            stamps[stampId] = true;
+            localStorage.setItem('stamps', JSON.stringify(stamps));
+            alert(stampId + 'を収集しました！');
+            // ここで収集したスタンプを表示する処理を追加することもできます
+          }
+          </script>
         <title>ノベルゲームを作ろう</title>
     </head>
     <body onContextmenu="return false" style="margin:0">
@@ -23,6 +39,7 @@
             <p>audioが未対応です</p>
         </audio>
         <div id="OPTION"></div>
-        
+        <h1>q01スタンプ</h1>
+        <button onclick="collectStamp('q01')">q01スタンプを収集</button>
     </body>
 </html>
