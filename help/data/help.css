@@ -1,0 +1,36 @@
+
+
+ul{
+	line-height:1em;
+}
+
+h1{
+	background-image:url("bg2.jpg");
+	background-repeat:repeat;
+	padding:5px;
+	text-align:center;
+}
+
+
+p{
+	line-height:1.5em;
+}
+a{
+	color:#339999;
+	text-decoration:none;
+}
+
+
+.commandContents{
+	margin: 10px;
+}
+
+.ex{
+	color:#000000;
+	margin-top:5em;
+	margin-bottom:5em;
+}
+
+.margin10{
+	margin: 10px;
+}
