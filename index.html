@@ -1,28 +1,65 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="shift-jis">
-        <link rel="stylesheet" href="css/css.css" type="text/css" />
-        <script charset="shift-jis" type="text/javascript" src="story.js"></script>
-        <script type="text/javascript" src="scr/jquery-2.2.0.min.js"></script>
-        <script type="text/javascript" src="scr/enchant.min.js"></script>
-        <script charset="shift-jis" type="text/javascript" src="scr/define.js"></script>
-        <script charset="shift-jis" type="text/javascript" src="scr/classes.js"></script>
-        <script charset="shift-jis" type="text/javascript" src="scr/command.js"></script>
-        <script charset="shift-jis" type="text/javascript" src="scr/system.js"></script>
-        <script charset="shift-jis" type="text/javascript" src="scr/web_maker_main.js"></script>
-        <title>�m�x���Q�[������낤</title>
-    </head>
-    <body onContextmenu="return false" style="margin:0">
-        <div id="OPTION"></div>
-        
-        <audio id="bgm" autoplay loop>
-            <source src="" type="audio/ogg">
-            <source src="" type="audio/mpeg">
-            <source src="" type="audio/wav">
-            <p>audio�����Ή��ł�</p>
-        </audio>
-        <div id="OPTION"></div>
-        
-    </body>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタンプラリー進捗</title>
+<style>
+  .collected {
+    color: green;
+  }
+  .not-collected {
+    color: red;
+  }
+</style>
+<script>
+// main.htmlに記載するJavaScriptコード
+
+// LocalStorageからスタンプの収集状況を読み込む関数
+function loadStamps() {
+  const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
+  return stamps;
+}
+
+// スタンプを収集する関数
+function collectStamp(stampId) {
+  const stamps = loadStamps();
+  stamps[stampId] = true;
+  localStorage.setItem('stamps', JSON.stringify(stamps));
+  alert(stampId + 'を収集しました！');
+}
+
+// スタンプの進捗を表示する関数
+function displayStampsProgress() {
+  const stamps = loadStamps();
+  const stampsContainer = document.getElementById('stamps-container');
+  ['q01', 'q02', 'q03', 'q04', 'q05'].forEach(stampId => {
+    const stampElement = document.createElement('div');
+    stampElement.textContent = stampId + ': ' + (stamps[stampId] ? '収集済み' : '未収集');
+    stampsContainer.appendChild(stampElement);
+  });
+}
+
+// スタンプラリー情報を初期状態に戻す関数
+function resetStamps() {
+  localStorage.removeItem('stamps');
+  displayStampsProgress(); // 進捗を更新
+  location.reload();
+}
+
+// ページ読み込み時にスタンプの進捗を表示
+document.addEventListener('DOMContentLoaded', displayStampsProgress);
+</script>
+</head>
+<body>
+
+<h1>スタンプラリー進捗</h1>
+<div id="stamps-container"></div>
+<button onclick="resetStamps()">進捗をリセット</button>
+<script>
+// ページ読み込み時にスタンプの進捗を表示するコードを記載
+document.addEventListener('DOMContentLoaded', displayStampsProgress);
+</script>
+</body>
 </html>
+
+
