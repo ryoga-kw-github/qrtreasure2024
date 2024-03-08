@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>ã‚¹ã‚¿ãƒ³ãƒ—ãƒ©ãƒªãƒ¼é€²æ—</title>
+<meta charset="shift-jis">
+<title>ƒXƒ^ƒ“ƒvƒ‰ƒŠ[i’»</title>
 <style>
   .collected {
     color: green;
@@ -12,51 +12,51 @@
   }
 </style>
 <script>
-// main.htmlã«è¨˜è¼‰ã™ã‚‹JavaScriptã‚³ãƒ¼ãƒ‰
+// main.html‚É‹LÚ‚·‚éJavaScriptƒR[ƒh
 
-// LocalStorageã‹ã‚‰ã‚¹ã‚¿ãƒ³ãƒ—ã®åé›†çŠ¶æ³ã‚’èª­ã¿è¾¼ã‚€é–¢æ•°
+// LocalStorage‚©‚çƒXƒ^ƒ“ƒv‚ÌûWó‹µ‚ğ“Ç‚İ‚ŞŠÖ”
 function loadStamps() {
   const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
   return stamps;
 }
 
-// ã‚¹ã‚¿ãƒ³ãƒ—ã‚’åé›†ã™ã‚‹é–¢æ•°
+// ƒXƒ^ƒ“ƒv‚ğûW‚·‚éŠÖ”
 function collectStamp(stampId) {
   const stamps = loadStamps();
   stamps[stampId] = true;
   localStorage.setItem('stamps', JSON.stringify(stamps));
-  alert(stampId + 'ã‚’åé›†ã—ã¾ã—ãŸï¼');
+  alert(stampId + '‚ğûW‚µ‚Ü‚µ‚½I');
 }
 
-// ã‚¹ã‚¿ãƒ³ãƒ—ã®é€²æ—ã‚’è¡¨ç¤ºã™ã‚‹é–¢æ•°
+// ƒXƒ^ƒ“ƒv‚Ìi’»‚ğ•\¦‚·‚éŠÖ”
 function displayStampsProgress() {
   const stamps = loadStamps();
   const stampsContainer = document.getElementById('stamps-container');
   ['q01', 'q02', 'q03', 'q04', 'q05'].forEach(stampId => {
     const stampElement = document.createElement('div');
-    stampElement.textContent = stampId + ': ' + (stamps[stampId] ? 'åé›†æ¸ˆã¿' : 'æœªåé›†');
+    stampElement.textContent = stampId + ': ' + (stamps[stampId] ? 'ûWÏ‚İ' : '–¢ûW');
     stampsContainer.appendChild(stampElement);
   });
 }
 
-// ã‚¹ã‚¿ãƒ³ãƒ—ãƒ©ãƒªãƒ¼æƒ…å ±ã‚’åˆæœŸçŠ¶æ…‹ã«æˆ»ã™é–¢æ•°
+// ƒXƒ^ƒ“ƒvƒ‰ƒŠ[î•ñ‚ğ‰Šúó‘Ô‚É–ß‚·ŠÖ”
 function resetStamps() {
   localStorage.removeItem('stamps');
-  displayStampsProgress(); // é€²æ—ã‚’æ›´æ–°
+  displayStampsProgress(); // i’»‚ğXV
   location.reload();
 }
 
-// ãƒšãƒ¼ã‚¸èª­ã¿è¾¼ã¿æ™‚ã«ã‚¹ã‚¿ãƒ³ãƒ—ã®é€²æ—ã‚’è¡¨ç¤º
+// ƒy[ƒW“Ç‚İ‚İ‚ÉƒXƒ^ƒ“ƒv‚Ìi’»‚ğ•\¦
 document.addEventListener('DOMContentLoaded', displayStampsProgress);
 </script>
 </head>
 <body>
 
-<h1>ã‚¹ã‚¿ãƒ³ãƒ—ãƒ©ãƒªãƒ¼é€²æ—</h1>
+<h1>ƒXƒ^ƒ“ƒvƒ‰ƒŠ[i’»</h1>
 <div id="stamps-container"></div>
-<button onclick="resetStamps()">é€²æ—ã‚’ãƒªã‚»ãƒƒãƒˆ</button>
+<button onclick="resetStamps()">i’»‚ğƒŠƒZƒbƒg</button>
 <script>
-// ãƒšãƒ¼ã‚¸èª­ã¿è¾¼ã¿æ™‚ã«ã‚¹ã‚¿ãƒ³ãƒ—ã®é€²æ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¼‰
+// ƒy[ƒW“Ç‚İ‚İ‚ÉƒXƒ^ƒ“ƒv‚Ìi’»‚ğ•\¦‚·‚éƒR[ƒh‚ğ‹LÚ
 document.addEventListener('DOMContentLoaded', displayStampsProgress);
 </script>
 </body>
