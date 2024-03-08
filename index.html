@@ -43,6 +43,7 @@ function displayStampsProgress() {
 function resetStamps() {
   localStorage.removeItem('stamps');
   displayStampsProgress(); // 進捗を更新
+  location.reload();
 }
 
 // ページ読み込み時にスタンプの進捗を表示
