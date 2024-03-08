@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタンプラリー進捗</title>
+<style>
+  .collected {
+    color: green;
+  }
+  .not-collected {
+    color: red;
+  }
+</style>
+<script>
+// main.htmlに記載するJavaScriptコード
+
+// LocalStorageからスタンプの収集状況を読み込む関数
+function loadStamps() {
+  const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
+  return stamps;
+}
+
+// スタンプを収集する関数
+function collectStamp(stampId) {
+  const stamps = loadStamps();
+  stamps[stampId] = true;
+  localStorage.setItem('stamps', JSON.stringify(stamps));
+  alert(stampId + 'を収集しました！');
+}
+
+// スタンプの進捗を表示する関数
+function displayStampsProgress() {
+  const stamps = loadStamps();
+  const stampsContainer = document.getElementById('stamps-container');
+  ['q01', 'q02', 'q03'].forEach(stampId => {
+    const stampElement = document.createElement('div');
+    stampElement.textContent = stampId + ': ' + (stamps[stampId] ? '収集済み' : '未収集');
+    stampsContainer.appendChild(stampElement);
+  });
+}
+
+// ページ読み込み時にスタンプの進捗を表示
+document.addEventListener('DOMContentLoaded', displayStampsProgress);
+</script>
+</head>
+<body>
+
+<h1>スタンプラリー進捗</h1>
+<div id="stamps-container"></div>
+
+<script>
+// ページ読み込み時にスタンプの進捗を表示するコードを記載
+document.addEventListener('DOMContentLoaded', displayStampsProgress);
+</script>
+</body>
+</html>
+
+
