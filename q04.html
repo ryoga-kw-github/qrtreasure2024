@@ -26,6 +26,9 @@
             alert(stampId + 'を収集しました！');
             // ここで収集したスタンプを表示する処理を追加することもできます
           }
+          document.addEventListener('DOMContentLoaded', function() {
+            collectStamp('q04');
+          });
           </script>
         <title>ノベルゲームを作ろう</title>
     </head>
@@ -39,7 +42,5 @@
             <p>audioが未対応です</p>
         </audio>
         <div id="OPTION"></div>
-        <h1>q01スタンプ</h1>
-        <button onclick="collectStamp('q01')">q01スタンプを収集</button>
     </body>
 </html>
