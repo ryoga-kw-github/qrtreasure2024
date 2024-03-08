@@ -32,11 +32,17 @@ function collectStamp(stampId) {
 function displayStampsProgress() {
   const stamps = loadStamps();
   const stampsContainer = document.getElementById('stamps-container');
-  ['q01', 'q02', 'q03'].forEach(stampId => {
+  ['q01', 'q02', 'q03', 'q04', 'q05'].forEach(stampId => {
     const stampElement = document.createElement('div');
     stampElement.textContent = stampId + ': ' + (stamps[stampId] ? '収集済み' : '未収集');
     stampsContainer.appendChild(stampElement);
   });
+}
+
+// スタンプラリー情報を初期状態に戻す関数
+function resetStamps() {
+  localStorage.removeItem('stamps');
+  displayStampsProgress(); // 進捗を更新
 }
 
 // ページ読み込み時にスタンプの進捗を表示
@@ -47,7 +53,7 @@ document.addEventListener('DOMContentLoaded', displayStampsProgress);
 
 <h1>スタンプラリー進捗</h1>
 <div id="stamps-container"></div>
-
+<button onclick="resetStamps()">進捗をリセット</button>
 <script>
 // ページ読み込み時にスタンプの進捗を表示するコードを記載
 document.addEventListener('DOMContentLoaded', displayStampsProgress);
