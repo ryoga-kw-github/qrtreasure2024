@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="shift-jis">
         <link rel="stylesheet" href="css/css.css" type="text/css" />
         <script charset="shift-jis" type="text/javascript" src="story.js"></script>
         <script type="text/javascript" src="scr/jquery-2.2.0.min.js"></script>
@@ -12,25 +12,25 @@
         <script charset="shift-jis" type="text/javascript" src="scr/system.js"></script>
         <script charset="shift-jis" type="text/javascript" src="scr/web_maker_main.js"></script>
         <script>
-          // LocalStorageã‹ã‚‰ã‚¹ã‚¿ãƒ³ãƒ—ã®åé›†çŠ¶æ³ã‚’èª­ã¿è¾¼ã‚€é–¢æ•°
+          // LocalStorage‚©‚çƒXƒ^ƒ“ƒv‚ÌûWó‹µ‚ğ“Ç‚İ‚ŞŠÖ”
           function loadStamps() {
             const stamps = JSON.parse(localStorage.getItem('stamps') || '{}');
             return stamps;
           }
           
-          // ã‚¹ã‚¿ãƒ³ãƒ—ã‚’åé›†ã™ã‚‹é–¢æ•°
+          // ƒXƒ^ƒ“ƒv‚ğûW‚·‚éŠÖ”
           function collectStamp(stampId) {
             const stamps = loadStamps();
             stamps[stampId] = true;
             localStorage.setItem('stamps', JSON.stringify(stamps));
-            alert(stampId + 'ã‚’åé›†ã—ã¾ã—ãŸï¼');
-            // ã“ã“ã§åé›†ã—ãŸã‚¹ã‚¿ãƒ³ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™
+            alert(stampId + '‚ğûW‚µ‚Ü‚µ‚½I');
+            // ‚±‚±‚ÅûW‚µ‚½ƒXƒ^ƒ“ƒv‚ğ•\¦‚·‚éˆ—‚ğ’Ç‰Á‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·
           }
           document.addEventListener('DOMContentLoaded', function() {
             collectStamp('q04');
           });
           </script>
-        <title>ãƒãƒ™ãƒ«ã‚²ãƒ¼ãƒ ã‚’ä½œã‚ã†</title>
+        <title>ƒmƒxƒ‹ƒQ[ƒ€‚ğì‚ë‚¤</title>
     </head>
     <body onContextmenu="return false" style="margin:0">
         <div id="OPTION"></div>
@@ -39,7 +39,7 @@
             <source src="" type="audio/ogg">
             <source src="" type="audio/mpeg">
             <source src="" type="audio/wav">
-            <p>audioãŒæœªå¯¾å¿œã§ã™</p>
+            <p>audio‚ª–¢‘Î‰‚Å‚·</p>
         </audio>
         <div id="OPTION"></div>
     </body>
